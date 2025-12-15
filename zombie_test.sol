@@ -24,9 +24,9 @@ contract ZombieFactory { //program
         emit NewZombie(id, _name, _dna);    //send the this information on blockchain... where is readable to others eg. web3.js
     }
 
-    function _generateRandomDna(string memory _str) private view returns (uint) {
-        uint rand = uint(keccak256(abi.encodePacked(_str)));
-        return rand % dnaModulus;
+    function _generateRandomDna(string memory _str) private view returns (uint) {    //this f(x) does change zero on blockchain, only readable within the contract, the name that user types 
+        uint rand = uint(keccak256(abi.encodePacked(_str)));    //variable rand stores variable of a big number that converts the result of calculation of SHA-3 (256-bits number or 32 bytes), abi. ...
+        return rand % dnaModulus;    //% operation for modul, dnaModulus is defined at the beginning of the contract, so the function returns variable rand limited to dnaModulus number of digits
     }
 
     function createRandomZombie(string memory _name) public {
@@ -36,6 +36,7 @@ contract ZombieFactory { //program
     }
 
 }
+
 
 
 
