@@ -29,13 +29,14 @@ contract ZombieFactory { //program
         return rand % dnaModulus;    //% operation for modul, dnaModulus is defined at the beginning of the contract, so the function returns variable rand limited to dnaModulus number of digits
     }
 
-    function createRandomZombie(string memory _name) public {
-        require(ownerZombieCount[msg.sender] == 0);
-        uint randDna = _generateRandomDna(_name);
-        _createZombie(_name, randDna);
+    function createRandomZombie(string memory _name) public {    //f(craeteRandomZombie) when user types name and f() is readable to anyone with eth address
+        require(ownerZombieCount[msg.sender] == 0);      //condition that the messagesender owns zero zombies
+        uint randDna = _generateRandomDna(_name);    //calls the f(generateRandomDna and based on the name calculate the dna number and stores it in randDna
+        _createZombie(_name, randDna);    //calls the second f() that adds the new zombie and set the ownership and rise the number of zombies of the user and starts the event
     }
 
 }
+
 
 
 
