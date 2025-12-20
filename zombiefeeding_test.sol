@@ -1,13 +1,13 @@
-pragma solidity >=0.5.0 <0.6.0;
+pragma solidity >=0.5.0 <0.6.0;    //solidity version 
 
-import "./zombie_test.sol";
+import "./zombie_test.sol";    //import other file
 
-contract KittyInterface {
-    function getKitty(uint256 _id) external view returns (
-        bool isGestating, 
-        bool isReady, 
-        uint256 cooldownIndex, 
-        uint256 nextActionAt, 
+contract KittyInterface {    //its an interface, its like a PLAN, tells us what other contract has, type of communication
+    function getKitty(uint256 _id) external view returns (    //f() named getKiity that call kitty of certain Id, can be read only by exterior contracts, and only for view
+        bool isGestating,    //bool = true or false, Is kitty gestating?
+        bool isReady,     //bool = is kitty ready? 
+        uint256 cooldownIndex,    //long number named cooldownIndex
+        uint256 nextActionAt,    // 
         uint256 siringWithId, 
         uint256 birthTime, 
         uint256 matronId, 
